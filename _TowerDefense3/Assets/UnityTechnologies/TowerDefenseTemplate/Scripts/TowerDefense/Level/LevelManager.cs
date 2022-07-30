@@ -347,5 +347,40 @@ namespace TowerDefense.Level
 				levelFailed();
 			}
 		}
+
+		/// <summary>
+		/// Take the remaining health of all bases and rates them
+		/// </summary>
+		/// <param name="remainingHealth">the total remaining health of all home bases</param>
+		/// <param name="maxHealth">the total maximum health of all home bases</param>
+		/// <returns>0 to 3 depending on how much health is remaining</returns>
+		public int CalculateScore()
+		{
+			float remainingHealth = 0f;
+			float maxHealth = 0f;
+			for (int i = 0; i < numberOfHomeBases; i++)
+			{
+				Damageable config = playerHomeBases[i].configuration;
+				remainingHealth += config.currentHealth;
+				maxHealth += config.maxHealth;
+			}
+
+			float normalizedHealth = remainingHealth / maxHealth;
+			if (Mathf.Approximately(normalizedHealth, 1f))
+			{
+				return 3;
+			}
+			if ((normalizedHealth <= 0.9f) && (normalizedHealth >= 0.5f))
+			{
+				return 2;
+			}
+			if ((normalizedHealth < 0.5f) && (normalizedHealth > 0f))
+			{
+				return 1;
+			}
+			return 0;
+		}
+		 
+
 	}
 }

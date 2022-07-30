@@ -39,15 +39,36 @@ namespace TowerDefense.Level
 			get { return (float) (m_CurrentIndex) / spawnInstructions.Count; }
 		}
 
+		///<summary>
+		/// The minimum score required to start wave
+		/// </summary>
+		public int minScoreToExecute = 0;
+
+		protected LevelManager m_LevelManager;
+
 		/// <summary>
 		/// Initializes the Wave
 		/// </summary>
 		public virtual void Init()
 		{
+			// Get reference to level manager
+			if ((m_LevelManager == null) && LevelManager.instanceExists)
+			{
+				m_LevelManager = LevelManager.instance;
+			}
+
 			// If the wave is empty then warn the level designer and fire complete event
 			if (spawnInstructions.Count == 0)
 			{
 				Debug.LogWarning("[LEVEL] Empty Wave");
+				SafelyBroadcastWaveCompletedEvent();
+				return;
+			}
+
+			// If the wave has a minimum score requirement that is not met, fire complete event
+			if(m_LevelManager.CalculateScore() < minScoreToExecute)
+            {
+				Debug.Log("Level skipped due to min score not met");
 				SafelyBroadcastWaveCompletedEvent();
 				return;
 			}
