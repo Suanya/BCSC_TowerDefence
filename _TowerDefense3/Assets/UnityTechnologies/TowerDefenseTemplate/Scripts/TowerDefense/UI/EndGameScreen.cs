@@ -274,49 +274,15 @@ namespace TowerDefense.UI
 			}
 		}
 
-		/// <summary>
-		/// Add up the health of all the Home Bases and return a score
-		/// </summary>
-		/// <returns>Final score</returns>
-		protected int CalculateFinalScore()
-		{
-			int homeBaseCount = m_LevelManager.numberOfHomeBases;
-			PlayerHomeBase[] homeBases = m_LevelManager.playerHomeBases;
+        /// <summary>
+        /// Add up the health of all the Home Bases and return a score
+        /// </summary>
+        /// <returns>Final score</returns>
+        protected int CalculateFinalScore()
+        {
+            int score = m_LevelManager.CalculateScore();
+            return score;
+        }
 
-			float totalRemainingHealth = 0f;
-			float totalBaseHealth = 0f;
-			for (int i = 0; i < homeBaseCount; i++)
-			{
-				Damageable config = homeBases[i].configuration;
-				totalRemainingHealth += config.currentHealth;
-				totalBaseHealth += config.maxHealth;
-			}
-			int score = CalculateScore(totalRemainingHealth, totalBaseHealth);
-			return score;
-		}
-
-		/// <summary>
-		/// Take the final remaining health of all bases and rates them
-		/// </summary>
-		/// <param name="remainingHealth">the total remaining health of all home bases</param>
-		/// <param name="maxHealth">the total maximum health of all home bases</param>
-		/// <returns>0 to 3 depending on how much health is remaining</returns>
-		protected int CalculateScore(float remainingHealth, float maxHealth)
-		{
-			float normalizedHealth = remainingHealth / maxHealth;
-			if (Mathf.Approximately(normalizedHealth, 1f))
-			{
-				return 3;
-			}
-			if ((normalizedHealth <= 0.9f) && (normalizedHealth >= 0.5f))
-			{
-				return 2;
-			}
-			if ((normalizedHealth < 0.5f) && (normalizedHealth > 0f))
-			{
-				return 1;
-			}
-			return 0;
-		}
 	}
 }
