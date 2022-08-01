@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: _tunaTurnerHair
-  m_Shader: {fileID: 4800000, guid: c5dbc692be5ee4ab282c74d3c4789228, type: 3}
+  m_Name: _glitterRefrectionReflection_Original
+  m_Shader: {fileID: 4800000, guid: f9d50f589737a4a91acdd8ed06cd766b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,11 +18,11 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _ColorEnd: 1
-    - _ColorStart: 0
-    m_Colors:
-    - _ColorA: {r: 1, g: 0.9490196, b: 0.0627451, a: 1}
-    - _ColorB: {r: 1, g: 0.48748046, b: 0, a: 1}
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
