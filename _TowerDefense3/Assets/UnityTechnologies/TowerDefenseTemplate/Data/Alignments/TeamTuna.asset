@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f1be0453c54638b1c63e16bf45d671, type: 3}
   m_Name: TeamTuna
   m_EditorClassIdentifier: 
-  opponents: []
+  opponents:
+  - {fileID: 11400000, guid: dfb8c64764848ce42ac1e527e35f61fd, type: 2}
