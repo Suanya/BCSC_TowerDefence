@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Text.RegularExpressions;
+
+
+[System.Serializable]
 public class ChuckNorris : MonoBehaviour
 {
     public TextMeshProUGUI jokeText;
@@ -13,8 +16,9 @@ public class ChuckNorris : MonoBehaviour
         string input = j.value;
       
 
-      string pattern = "([A-Z])\\w[Chuck]+)";
-      string replacement = "Chick";
+      string pattern = "";
+      string replacement = "";
       string result = Regex.Replace(input, pattern, replacement);
+      
     }
 }
