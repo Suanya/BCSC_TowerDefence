@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: ChickNorris
   upgradeDescription: 
-  cost: 1
+  cost: 5
   sell: -1
   maxHealth: 20
   startingHealth: 20
