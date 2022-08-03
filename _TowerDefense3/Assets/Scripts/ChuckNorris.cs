@@ -13,12 +13,15 @@ public class ChuckNorris : MonoBehaviour
         Joke j = ApiHelper.GetNewJoke();
          jokeText.text = j.value;
 
-        string input = j.value;
+      string replaceValueFrom = jokeText.text;
+      jokeText.text = replaceValueFrom.Replace("Chuck", "Chick");
+
+      //   string input = j.value;
       
 
-      string pattern = "";
-      string replacement = "";
-      string result = Regex.Replace(input, pattern, replacement);
+      // string pattern = "";
+      // string replacement = "";
+      // string result = Regex.Replace(input, pattern, replacement);
       
     }
 }
