@@ -26,9 +26,9 @@ Shader "Unlit/GlitterOnly"
 			// make fog work
 			#pragma multi_compile_fog
 			
-			#include "UnityCG.cginc"
-			#include "Simplex3D.cginc"
-			#include "SparklesCG.cginc"
+			#include "\CGinc\UnityCG.cginc"
+			#include "\CGinc\Simplex3D.cginc"
+			#include "\CGinc\SparklesCG.cginc"
 
 			struct MeshData
 			{
